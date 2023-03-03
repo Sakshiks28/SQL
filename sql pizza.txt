@@ -1,0 +1,47 @@
+1.Table name is company
+
++-----------+----------------+---------------+
+| conpanyid | companyname    | companycity   |
++-----------+----------------+---------------+
+|         1 | Dominos        | Losangles     |
+|         2 | Pizza hut      | San francisco |
+|         3 | Papa john      | San diego     |
+|         4 | Ah pizz        | San fremont   |
+|         5 | Nino pizza     | Las vegas     |
+|         6 | Pizeria        | Boston        |
+|         7 | Chuck ee chees | Chicago       |
++-----------+----------------+---------------+
+7 rows in set (0.00 sec)
+
+2.Table name is item
++--------+---------------+----------+
+| itemid | itemname      | unitsold |
++--------+---------------+----------+
+|      1 | Large pizza   |        5 |
+|      2 | Garlic knots  |        6 |
+|      3 | Large pizza   |        3 |
+|      4 | Midium pizza  |        8 |
+|      5 | Breadsticks   |        7 |
+|      6 | Medium pizza  |       11 |
+|      7 | Small pizza   |        9 |
+|      8 | Small pizza   |        6 |
++--------+---------------+----------+
+8 rows in set (0.001 sec)
+
+
+
+
+3.select * from company inner join item on company.companyid=item.itemid;
+
++-----------+----------------+---------------+--------+---------------+----------+
+| conpanyid | companyname    | companycity   | itemid | itemname      | unitsold |
++-----------+----------------+---------------+--------+---------------+----------+
+|         1 | Dominos        | Losangles     |      1 | Large pizza   |        5 |
+|         2 | Pizza hut      | San francisco |      2 | Garlic knots  |        6 |
+|         3 | Papa john      | San diego     |      3 | Large pizza   |        3 |
+|         4 | Ah pizz        | San fremont   |      4 | Midium pizza  |        8 |
+|         5 | Nino pizza     | Las vegas     |      5 | Breadsticks   |        7 |
+|         6 | Pizeria        | Boston        |      6 | Medium pizza  |       11 |
+|         7 | Chuck ee chees | Chicago       |      7 | Small pizza   |        9 |
++-----------+----------------+---------------+--------+---------------+----------+
+7 rows in set (0.00 sec)
