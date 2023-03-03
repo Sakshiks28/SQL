@@ -1,0 +1,94 @@
+1.create database student;
+
+Query OK, 1 row affected (0.001 sec)
+mysql> use student;
+Database changed
+mysql> create table TbParent(
+    -> parentid in unique not null,
+    -> parent_name varchar(20),
+    -> city varchar(20),
+    -> age int,
+    -> annual_income int,
+    -> occupation varchar(25),
+    -> email_id varchar(25));
+Query OK, 0 rows affected (0.06 sec)
+
+2.update TbParent set email_id="NA";
+
+Query OK, 10 rows affected (0.01 sec)
+Rows matched: 10  Changed: 10  Warnings: 0
+
+3.select count(annual_income) from TbParent where annual_income>600000;
++----------------------+
+| count(annual_income) |
++----------------------+
+|                    4 |
++----------------------+
+1 row in set (0.001 sec)
+
+
+
+4.select* from TbParent where city='ahmendabad' or city='delhi' or city='mumbai' or city='chennai' or city='banglore';
++----------+-------------+------------+------+---------------+-------------------+--------------------+
+| parentid | parent_name | city       | age  | annual_income | occupation        | email_id           |
++----------+-------------+------------+------+---------------+-------------------+--------------------+
+|      101 | sakshi      | mumbai     |   22 |       3500000 | software developer| sakshi@gmail.com   |
+|      102 | tejas       | chennai    |   24 |         90000 | software develoer | tejas@gmail.com    |
+|      103 | ansh        | ahmendabad |   25 |       700000  | software engineer | ansh@gmail.com     |
+|      104 | vihan       | delhi      |   27 |       800000    frontend developer| vihan@gmail.com    |
+|      105 | priti       | banglore   |   23 |       1000000 | java developer    | priti@gmail.com    |
+|      109 | mayur       | delhi      |   51 |       8000000 | python  developer | mayur@gmail.com    |
++----------+-------------+------------+------+---------------+-------------------+--------------------+
+6 rows in set (0.01 sec)
+
+
+
+
+ 5.select * from TbParent where annual_income<500000;
++----------+-------------+---------------+------+---------------+---------------------+--------------------+
+| parentid | parent_name | city          | age  | annual_income | occupation          | email_id           |
++----------+-------------+---------------+------+---------------+---------------------+--------------------+
+|      102 | tejas       | chennai       |   24 |         90000 | software develoer   | tejas@gmail.com    |
+|      104 | vihan       | delhi         |   27 |         80000 | frontend developer  | vihan@gmail.com    |
+|      107 | danish      | tamilnaidu    |   25 |         60000 | graphic designer    | danish@gmail.com   |
+|      108 | suraj       | Hyderabad     |   24 |        100000 | mechnical engineer  | suraj@gmail.com    |
+|      110 | aniket      | Karnataka     |   23 |         70000 | civil engineer      | aniket@gmail.com   |
++----------+-------------+---------------+------+---------------+---------------------+--------------------+
+5 rows in set (0.001 sec)
+
+
+
+
+
+5.mysql> select  * from TbParent where age>45;
++----------+-------------+--------+------+---------------+----------------+-------------------+
+| parentid | parent_name | city   | age  | annual_income | occupation     | email_id          |
++----------+-------------+--------+------+---------------+----------------+-------------------+
+|      106 | komal       | pune   |   51 |       100000  |  teacher       | komal@gmail.com   |
+|      109 | mayur       | delhi  |   55 |       700000  |python developer| mayur@gmail.com   |
++----------+-------------+--------+------+---------------+----------------+-------------------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+6. create table students(
+    -> sid int not null auto_increment primary key,
+    -> sname varchar(250),
+    -> math int,
+    -> science int,
+    -> pid int, foreign key(pid) references tbparent(parentid)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+select*from students;
++-----+-----------+------+---------+------+
+| sid | sname     | math | science | pid  |
++-----+-----------+------+---------+------+
+| 101 | sakshi    |   60 |      85 |  101 |
+| 102 | tejas     |   50 |      42 |  102 |
+| 103 | ansh      |   55 |      36 |  103 |
+| 104 | vihan     |   52 |      40 |  107 |
++-----+-----------+------+---------+------+
+4 rows in set (0.001 sec)
